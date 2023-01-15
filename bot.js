@@ -30,7 +30,7 @@ bot.onText(/\/sent (.+)/, (msg, match) => {
   let obj = msg;
   console.log(obj);
   if (bot.forwardMessage(myid, msg.chat.id, obj.message_id)) {
-    bot.sendMessage(myid, "From " + msg.chat.id+'\n@'+msg.from.username+'\nFirst Name: '+msg.from.first_name+"\n link" [msg.chat.id](tg://openmessage?user_id=msg.chat.id),{parse_mode : "MARKDOWN"});
+    bot.sendMessage(myid, "From " + "<code>"+msg.chat.id+"</code>"+'\n@'+msg.from.username+'\nFirst Name: '+msg.from.first_name,{parse_mode : "HTML"});
     bot.sendMessage(msg.chat.id, "Your message has been sent successfully");
   }
 });
