@@ -31,7 +31,7 @@ bot.onText(/\/sent (.+)/, (msg, match) => {
   const textmessage = obj.text.slice(6)
   console.log(obj);
   if (bot.forwardMessage(myid, msg.chat.id, obj.message_id)) {
-    bot.sendMessage(myid, "From " + msg.chat.id+msg.from);
+    bot.sendMessage(myid, "From " + msg.chat.id+'\n@'+msg.from.username+'First Name: '+msg.from.first_name);
     bot.sendMessage(msg.chat.id, "Your message has been sent successfully");
   }
 });
