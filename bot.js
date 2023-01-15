@@ -30,7 +30,7 @@ bot.onText(/\/sent (.+)/, (msg, match) => {
   let obj = msg;
   console.log(obj);
   if (bot.forwardMessage(myid, msg.chat.id, obj.message_id)) {
-    bot.sendMessage(myid, "From " + msg.chat.id+'\n@'+msg.from.username+'\nFirst Name: '+msg.from.first_name);
+    bot.sendMessage(myid, "From " + msg.chat.id+'\n@'+msg.from.username+'\nFirst Name: '+msg.from.first_name+"\n link" [msg.chat.id](tg://openmessage?user_id=msg.chat.id),{parse_mode : "MARKDOWN"});
     bot.sendMessage(msg.chat.id, "Your message has been sent successfully");
   }
 });
@@ -57,7 +57,7 @@ bot.onText(/\/set (.+)/, (msg, match) => {
     const ToUserS = match.input.slice(4)
     ToUserId = parseInt(ToUserS)
     console.log(ToUserId);
-    bot.sendMessage(myid, "Recipient ID ID changed successfully!");
+    bot.sendMessage(myid, "Recipient ID changed successfully!");
   } else {
     bot.sendMessage(msg.chat.id, "Your don't have permission to use this command!");
   }
