@@ -78,6 +78,7 @@ bot.onText(/\/reply (.+)/, (msg, match) => {
     if (ToUserId == null) {
       bot.sendMessage(myid, "To ID not configured...");
     } else {
+      console.log(ToUserId);
       bot.sendMessage(ToUserId, textmessage).catch((error) => {
         let errorr = error.code;  // => 'ETELEGRAM'
         // => { ok: false, error_code: 400, description: 'Bad Request: chat not found' }
