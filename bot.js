@@ -6,7 +6,7 @@ const token = '5551059330:AAEb5BHscliz7rQAAH4ihZaEAPpzfMzQ0Cg';
 // Create a bot that uses 'polling' to fetch new updates
 const bot = new TelegramBot(token, { polling: true });
 
-let ToUserId //for setting user reply id
+let ToUserId = null; //for setting user reply id
 
 // Matches "/echo [whatever]"
 bot.onText(/\/json (.+)/, (msg, match) => {
