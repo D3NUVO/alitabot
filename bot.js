@@ -76,7 +76,7 @@ bot.onText(/\/reply (.+)/, (msg, match) => {
 
   if (msg.chat.id == myid) {
     if (ToUserId == null) {
-      bot.sendMessage(myid, "To ID not configured...");
+      bot.sendMessage(myid, "Recipient ID not configured...");
     } else {
       console.log(ToUserId);
       bot.sendMessage(ToUserId, textmessage).catch((error) => {
@@ -116,7 +116,7 @@ bot.onText(/\/start/, (msg) => {
 
 bot.onText(/\/help/, (msg) => {
 
-  bot.sendMessage(msg.chat.id, 'My commands \n/start\n/sent\n/json\n/id\n/sendpic\n/reply\n/set ');
+  bot.sendMessage(msg.chat.id, "My commands \n/start - Check of the bot is online\n\n/sent - Sent the message \n\n/json - Get JSON Data of that message\n\n/id - Get the chat ID\n\n/sendpic - Sent Alita's PIC\n\n/reply - Sent a reply to the message\n\n/set - Set the recipient");
 
 });
 
