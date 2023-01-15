@@ -28,9 +28,10 @@ bot.onText(/\/json (.+)/, (msg, match) => {
 bot.onText(/\/sent (.+)/, (msg, match) => {
 
   let obj = msg;
+  const textmessage = obj.text.slice(6)
   console.log(obj);
   if (bot.forwardMessage(myid, msg.chat.id, obj.message_id)) {
-    bot.sendMessage(myid, "From " + msg.chat.id);
+    bot.sendMessage(myid, "From " + msg.chat.id+msg.from);
     bot.sendMessage(msg.chat.id, "Your message has been sent successfully");
   }
 });
@@ -57,7 +58,7 @@ bot.onText(/\/set (.+)/, (msg, match) => {
     const ToUserS = match.input.slice(4)
     ToUserId = parseInt(ToUserS)
     console.log(ToUserId);
-    bot.sendMessage(myid, "To ID changed successfully!");
+    bot.sendMessage(myid, "Recipient ID ID changed successfully!");
   } else {
     bot.sendMessage(msg.chat.id, "Your don't have permission to use this command!");
   }
@@ -76,7 +77,7 @@ bot.onText(/\/reply (.+)/, (msg, match) => {
 
   if (msg.chat.id == myid) {
     if (ToUserId == null) {
-      bot.sendMessage(myid, "Recipient ID not configured...");
+      bot.sendMessage(myid, "Recipient ID is not configured...");
     } else {
       console.log(ToUserId);
       bot.sendMessage(ToUserId, textmessage).catch((error) => {
@@ -116,7 +117,7 @@ bot.onText(/\/start/, (msg) => {
 
 bot.onText(/\/help/, (msg) => {
 
-  bot.sendMessage(msg.chat.id, "My commands \n/start - Check of the bot is online\n\n/sent - Sent the message \n\n/json - Get JSON Data of that message\n\n/id - Get the chat ID\n\n/sendpic - Sent Alita's PIC\n\n/reply - Sent a reply to the message\n\n/set - Set the recipient");
+  bot.sendMessage(msg.chat.id, "My commands \n\n/start - Check of the bot is online\n\n/sent - Sent the message \n\n/json - Get JSON Data of that message\n\n/id - Get the chat ID\n\n/sendpic - Sent Alita's PIC\n\n/reply - Sent a reply to the message\n\n/set - Set the recipient");
 
 });
 
