@@ -1,7 +1,7 @@
 const TelegramBot = require('node-telegram-bot-api');
 
 // replace the value below with the Telegram token you receive from @BotFather
-const token = '';
+const token = '5551059330:AAEb5BHscliz7rQAAH4ihZaEAPpzfMzQ0Cg';
 
 // Create a bot that uses 'polling' to fetch new updates
 const bot = new TelegramBot(token, { polling: true });
@@ -82,12 +82,16 @@ bot.onText(/\/reply (.+)/, (msg, match) => {
       bot.sendMessage(myid, "To ID not configured...");
     } else {
       try {
-        if (bot.sendMessage(ToUserId, textmessage)) {
-          bot.sendMessage(myid, 'message send successfully');
-        }
-        else {
-          bot.sendMessage(myid, "msg not send");
-        }
+        bot.sendMessage(ToUserId, textmessage).catch((error) => {
+          let errorr = error.code;  // => 'ETELEGRAM'
+           // => { ok: false, error_code: 400, description: 'Bad Request: chat not found' }
+          if(errorr == 'ETELEGRAM'){
+            bot.sendMessage(myid, 'The person blocked the bot');
+          }
+        })
+
+          bot.sendMessage(myid, "message sent successfully");
+ 
       } catch (error) {
         console.log(message.error);
       }
