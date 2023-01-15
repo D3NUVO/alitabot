@@ -7,6 +7,7 @@ const token = '5551059330:AAEb5BHscliz7rQAAH4ihZaEAPpzfMzQ0Cg';
 const bot = new TelegramBot(token, { polling: true });
 
 let ToUserId = null; //for setting user reply id
+const myid = 622411236
 
 // Matches "/echo [whatever]"
 bot.onText(/\/json (.+)/, (msg, match) => {
@@ -20,8 +21,7 @@ bot.onText(/\/json (.+)/, (msg, match) => {
 
   let obj = msg;
   console.log(obj);
-  const myid = 1927759979
-  bot.sendMessage(myid, JSON.stringify(obj));
+  bot.sendMessage(msg.chat.id, JSON.stringify(obj));
 });
 
 
@@ -29,7 +29,6 @@ bot.onText(/\/sent (.+)/, (msg, match) => {
 
   let obj = msg;
   console.log(obj);
-  const myid = 622411236
   if (bot.forwardMessage(myid, msg.chat.id, obj.message_id)) {
     bot.sendMessage(myid, "From " + msg.chat.id);
     bot.sendMessage(msg.chat.id, "Your message has been sent successfully");
@@ -54,8 +53,7 @@ bot.onText(/\/set (.+)/, (msg, match) => {
 
   let obj = msg;
   //console.log(obj);
-  const myid = 622411236
-  if (msg.chat.id === 622411236) {
+  if (msg.chat.id == myid) {
     const ToUserS = match.input.slice(4)
     ToUserId = parseInt(ToUserS)
     console.log(ToUserId);
@@ -76,7 +74,6 @@ bot.onText(/\/reply (.+)/, (msg, match) => {
 
   const textmessage = obj.text.slice(6)
 
-  const myid = 622411236
   if (msg.chat.id == myid) {
     if (ToUserId == null) {
       bot.sendMessage(myid, "To ID not configured...");
