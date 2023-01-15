@@ -78,20 +78,16 @@ bot.onText(/\/reply (.+)/, (msg, match) => {
     if (ToUserId == null) {
       bot.sendMessage(myid, "To ID not configured...");
     } else {
-      try {
-        bot.sendMessage(ToUserId, textmessage).catch((error) => {
-          let errorr = error.code;  // => 'ETELEGRAM'
-           // => { ok: false, error_code: 400, description: 'Bad Request: chat not found' }
-          if(errorr == 'ETELEGRAM'){
-            bot.sendMessage(myid, 'The person blocked the bot');
-          }
-        })
+      bot.sendMessage(ToUserId, textmessage).catch((error) => {
+        let errorr = error.code;  // => 'ETELEGRAM'
+        // => { ok: false, error_code: 400, description: 'Bad Request: chat not found' }
+        if (errorr == 'ETELEGRAM') {
+          bot.sendMessage(myid, 'The person blocked the bot');
+        }
+      })
 
-          bot.sendMessage(myid, "message sent successfully");
- 
-      } catch (error) {
-        console.log(message.error);
-      }
+      bot.sendMessage(myid, "message sent successfully");
+
     }
   } else {
     bot.sendMessage(msg.chat.id, "You have no permission to use this command !");
