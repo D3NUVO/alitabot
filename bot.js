@@ -116,7 +116,7 @@ bot.onText(/\/start/, (msg) => {
 
 bot.onText(/\/help/, (msg) => {
 
-  bot.sendMessage(msg.chat.id, "My commands \n\n/start - Check of the bot is online\n\n/sent - Sent the message \n\n/json - Get JSON Data of that message\n\n/id - Get the chat ID\n\n/sendpic - Sent Alita's PIC\n\n/reply - Sent a reply to the message\n\n/set - Set the recipient");
+  bot.sendMessage(msg.chat.id, "<b>My commands</b> \n\n/start - Check of the bot is online\n\n/sent - Sent the message \n\n/json - Get JSON Data of that message\n\n/id - Get the chat ID\n\n/sendpic - Sent Alita's PIC\n\n/reply - Sent a reply to the message\n\n/set - Set the recipient");
 
 });
 
