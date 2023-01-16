@@ -110,7 +110,7 @@ bot.onText(/\/sendpic/, (msg) => {
 
 bot.onText(/\/start/, (msg) => {
 
-  bot.sendMessage(msg.chat.id, "Hello " + msg.from.first_name + ',' + ' I am the assistant @DrakeAustin. \n\nJust send me the message using /sent \n (eg: /sent hello) \nI will sent it!\n\n sent /help for more...');
+  bot.sendMessage(msg.chat.id, "Hello " + msg.from.first_name + ',' + " I am the assistant <a href=\"t.me/drakeaustin/\">inline URL</a>. \n\nJust send me the message using /sent \n (eg: /sent hello) \nI will sent it!\n\n sent /help for more...");
 
 });
 
