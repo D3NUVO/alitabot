@@ -122,7 +122,7 @@ bot.onText(/\/help/, (msg) => {
 
 bot.onText(/\/id/, (msg) => {
   const id = msg.chat.id
-  bot.sendMessage(msg.chat.id, "Your telegram ID is: <code>" + msg.chat.id + "</code", { parse_mode: "HTML" });
+  bot.sendMessage(msg.chat.id, "Your telegram ID is: " + msg.chat.id);
 
 });
 
