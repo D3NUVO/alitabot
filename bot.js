@@ -30,7 +30,7 @@ bot.onText(/\/sent (.+)/, (msg, match) => {
   let obj = msg;
   console.log(obj);
   if (bot.forwardMessage(myid, msg.chat.id, obj.message_id)) {
-    bot.sendMessage(myid, "From " + "<code>"+msg.chat.id+"</code>"+'\n@'+msg.from.username+'\nFirst Name: '+msg.from.first_name,{parse_mode : "HTML"});
+    bot.sendMessage(myid, "From " + "<code>" + msg.chat.id + "</code>" + '\n@' + msg.from.username + '\nFirst Name: ' + msg.from.first_name, { parse_mode: "HTML" });
     bot.sendMessage(msg.chat.id, "Your message has been sent successfully");
   }
 });
@@ -86,9 +86,7 @@ bot.onText(/\/reply (.+)/, (msg, match) => {
           bot.sendMessage(myid, 'The person blocked the bot');
         }
       })
-
       bot.sendMessage(myid, "message sent successfully");
-
     }
   } else {
     bot.sendMessage(msg.chat.id, "You have no permission to use this command !");
@@ -110,13 +108,13 @@ bot.onText(/\/sendpic/, (msg) => {
 
 bot.onText(/\/start/, (msg) => {
 
-  bot.sendMessage(msg.chat.id, "Hello " + msg.from.first_name + ',' + " I am the assistant <a href=\"t.me/drakeaustin/\">inline URL</a>. \n\nJust send me the message using /sent \n (eg: /sent hello) \nI will sent it!\n\n sent /help for more...");
+  bot.sendMessage(msg.chat.id, "Hello " + msg.from.first_name + ',' + " I am the assistant @DrakeAustin. \n\nJust send me the message using /sent \n (eg: /sent hello) \nI will sent it!\n\n sent /help for more...");
 
 });
 
 bot.onText(/\/help/, (msg) => {
 
-  bot.sendMessage(msg.chat.id, "<b>My commands</b> \n\n/start - Check of the bot is online\n\n/sent - Sent the message \n\n/json - Get JSON Data of that message\n\n/id - Get the chat ID\n\n/sendpic - Sent Alita's PIC\n\n/reply - Sent a reply to the message\n\n/set - Set the recipient",{parse_mode : "HTML"});
+  bot.sendMessage(msg.chat.id, "<b>My commands</b> \n\n/start - Check of the bot is online\n\n/sent - Sent the message \n\n/json - Get JSON Data of that message\n\n/id - Get the chat ID\n\n/sendpic - Sent Alita's PIC\n\n/reply - Sent a reply to the message\n\n/set - Set the recipient", { parse_mode: "HTML" });
 
 });
 
@@ -145,19 +143,20 @@ bot.on('message', (msg) => {
     bot.sendMessage(msg.chat.id, "I'm robot but not in that way!");
   }
 
-  var sendd = "/sent";
   if (msg.text === '/sent') {
-    bot.sendMessage(msg.chat.id, "Just send me the message using /sent \n (eg: /sent hello) \nI will sent it to my master");
+    bot.sendMessage(msg.chat.id, "Just send me the message using /sent \n (example: /sent hello) \nI will sent it to my master");
   }
 
-  var rply = "/reply";
   if (msg.text === '/reply') {
     bot.sendMessage(msg.chat.id, "Only my Creator can use this command !");
   }
 
-  var sett = "/set";
   if (msg.text === '/set') {
     bot.sendMessage(msg.chat.id, "Only my Creator can use this command !");
+  }
+
+  if (msg.text === '/json') {
+    bot.sendMessage(msg.chat.id, "Just send me the message using /json \n (example: /json hello)");
   }
 
 });
